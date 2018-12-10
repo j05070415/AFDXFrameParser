@@ -48,6 +48,18 @@ void testStructs() {
     ip.ih_src.iaddr.partition_id = 0xA;
     modifyIPBroadcast(pip, 0xE, 0x1234);
     ip.ih_src.baddr.vl = 0x4123;
+
+    char buff[20];
+    memset(buff, 1, 20);
+    MACToString(&mac, buff, 18);
+    qDebug() << buff;
+    char *mm = "11-22-33-44-55-66";
+    MACFromString(mm, &mac);
+
+    u_long ipvalue = IP4FromString("192.168.0.1");
+    qDebug() << ipvalue;
+    IP4ToString(ipvalue+1, buff, 20);
+    qDebug() << buff;
 }
 
 int main(int argc, char *argv[])

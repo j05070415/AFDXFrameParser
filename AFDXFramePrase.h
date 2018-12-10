@@ -104,10 +104,21 @@ u_long AFDX_FRAMEPARSE_EXPORT swapI32(u_long v);
  */
 u_short AFDX_FRAMEPARSE_EXPORT swapI16(u_short v);
 
-void MACToString(void *buffer, char* value);
+/**
+ * @brief MACToString convert mac to string value, value's size at least 18 Bytes.
+ * @param buffer is start of mac layer
+ * @param value is string buffer, at least 18 Bytes
+ */
+void MACToString(void *buffer, char* value, int size);
 void MACFromString(char *value, void *buffer);
 
-void IP4ToString(u_long value, char* buffer);
+/**
+ * @brief IP4ToString convert ip4 to string
+ * @param value ip4 long value
+ * @param buffer to ip string
+ * @param size of buffer
+ */
+void IP4ToString(u_long value, char* buffer, int size);
 u_long IP4FromString(char *value);
 
 #ifdef __cplusplus
